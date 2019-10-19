@@ -14,7 +14,7 @@ describe('NewRestaurantForm', () => {
         .simulate('change', { target: { value: restaurantName } });
 
       wrapper
-        .find('[data-test="saveNewRestaurantButton"]')
+        .find('button[data-test="saveNewRestaurantButton"]')
         .simulate('click');
 
       expect(saveHandler).toHaveBeenCalledWith(restaurantName);
