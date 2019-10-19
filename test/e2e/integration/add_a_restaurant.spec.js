@@ -3,6 +3,9 @@ describe('adding a restaurant', () => {
     const restaurantName = 'Delicious Food';
     cy.visit('http://localhost:3000');
 
+    cy.get('[data-test="newRestaurantName"]')
+      .should('not.exist');
+
     cy.get('[data-test="addRestaurantButton"]')
       .click();
     // Input
@@ -11,6 +14,9 @@ describe('adding a restaurant', () => {
 
     cy.get('[data-test="saveRestaurantButton"]')
       .click();
+      
+    cy.get('[data-test="newRestaurantName"]')
+      .should('not.exist');
     // Somewhere on the page
     cy.contains(restaurantName);
   });
