@@ -5,15 +5,22 @@ import {
 } from 'react-materialize';
 
 const RestaurantList = ({ restaurants }) => (
-  <Collection>
+  <Collection header="Restaurants">
     {
-      restaurants.map(restaurantName => (
-        <CollectionItem key = {restaurantName}> 
-          {restaurantName}
-        </CollectionItem>
-      ))
+      restaurants.length === 0
+        ? (
+          <CollectionItem style={{ color: 'gray' }}>
+            (None added Yet)
+          </CollectionItem>
+        )
+        : (
+          restaurants.map(restaurantName => (
+            <CollectionItem key = {restaurantName}> 
+              {restaurantName}
+            </CollectionItem>
+          ))
+        )
     }
-
   </Collection>
 );
 
